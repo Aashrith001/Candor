@@ -1,4 +1,7 @@
-import firebase from 'firebase/firebase-app'
+/* eslint-disable import/no-extraneous-dependencies */
+import firebase from 'firebase/app';
+import 'firebase/auth';
+import 'firebase/database';
 
 const config = {
   apiKey: "AIzaSyAu2VnkLiT41CdRi_wHVW__41-CmXs8UJI",
@@ -10,5 +13,7 @@ const config = {
   appId: "1:344379004886:web:e7cc1f9b1598eee0f9f677"
 };
 
-firebase.initializeApp(config);
+const app = firebase.initializeApp(config);
+export const auth = app.auth();
+export const database = app.database();
 
