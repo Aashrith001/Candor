@@ -6,7 +6,6 @@ const EditableInput = ({
   onSave,
   label = null,
   placeholder = "write your value",
-  // eslint-disable-next-line no-unused-vars
   emptyMsg = "Input is empty",
   ...inputprops
 }) => {
@@ -21,7 +20,7 @@ const EditableInput = ({
     setIsEditable(p=>!p);
     setInput(initialValue);
   },[initialValue]);
-  
+
   const onSaveClick = async()=>{
     const trimmed = input.trim();
     if(trimmed === ''){
