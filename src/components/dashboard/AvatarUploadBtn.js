@@ -67,7 +67,7 @@ const AvatarUploadBtn = () => {
       Alert.error(err.message, 4000);
     }
   }
-  console.log(profile);
+
   return (
     <div className="mt-3 text-center">
       <ProfileAvatar
