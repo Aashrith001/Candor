@@ -3,7 +3,7 @@ import React, { useCallback, useRef, useState } from 'react'
 import { Button, Icon, Modal, Form, FormControl, ControlLabel, FormGroup, Schema, Alert } from 'rsuite'
 import firebase from 'firebase/app';
 import { useModelState } from '../misc/custom-hooks'
-import { database } from '../misc/firebase';
+import { auth, database } from '../misc/firebase';
 
 const { StringType } = Schema.Types;
 const model = Schema.Model({
@@ -34,7 +34,10 @@ const CreateRoomBtnModel = () => {
 
     const newRoomdata = {
       ...formValue,
-      createdAt: firebase.database.ServerValue.TIMESTAMP
+      createdAt: firebase.database.ServerValue.TIMESTAMP,
+      admins: {
+        [auth.currentUser.uid]: true
+      }
     }
 
     try {

@@ -1,12 +1,13 @@
 import React from 'react'
 import { useParams } from 'react-router'
 import { Loader } from 'rsuite'
-
 import { CurrentRoomProvider } from '../../context/current-room-context'
 import ChatTop from '../../components/chat-window/top'
 import Messages from '../../components/chat-window/messages'
 import ChatBottom from '../../components/chat-window/bottom'
 import { useRooms } from '../../context/rooms.context'
+import { transformToArr } from '../../misc/helpers'
+import { auth } from '../../misc/firebase'
 
 
 const Chat = () => {
@@ -25,8 +26,15 @@ const Chat = () => {
   }
 
   const { name, description } = currRoom;
+
+  const admins = transformToArr(currRoom.admins);
+  const isAdmin = admins.includes(auth.currentUser.uid)
+
   const currentRoomData = {
-    name, description
+    name,
+    description,
+    admins,
+    isAdmin
   }
 
   return (
