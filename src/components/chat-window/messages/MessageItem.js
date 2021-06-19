@@ -13,7 +13,7 @@ import ImgBtnModal from './ImgBtnModal';
 const renderFileMessage = file => {
   if (file.contentType.includes('image')) {
     return (
-      <div className="height-220">
+      <div className="height-220 ml-3">
         <ImgBtnModal src={file.url} fileName={file.name} />
       </div>
     );
@@ -21,7 +21,7 @@ const renderFileMessage = file => {
   if (file.contentType.includes('audio')) {
     return (
       // eslint-disable-next-line jsx-a11y/media-has-caption
-      <audio controls>
+      <audio controls className="ml-3">
         <source src={file.url} type="audio/mp3" />
         Your browser does not support the audio element.
       </audio>
@@ -92,7 +92,7 @@ const MessageItem = ({ message, handleAdmin, handleLike, handleDelete }) => {
         )}
       </div>
       <div>
-        {text && <span className="word-breal-all">{text}</span>}
+        {text && <span className="word-breal-all ml-3">{text}</span>}
         {file && renderFileMessage(file)}
       </div>
     </li>
