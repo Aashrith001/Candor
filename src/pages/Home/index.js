@@ -15,7 +15,7 @@ const Home = () => {
 
   return (
     <RoomsProvider>
-      `    <Grid fluid className="h-100">
+      <Grid fluid className="h-100">
         <Row className="h-100">
           {canRenderSidebar && (
             <Col xs={24} md={8} className="h-100">
