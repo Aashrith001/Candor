@@ -79,7 +79,6 @@ const MessageItem = ({ message, handleAdmin, handleLike, handleDelete }) => {
             iconName="close"
             tooltip="Delete this message"
             onClick={() => handleDelete(message.id)}
-            badgeContent={likeCount}
           />
         )}
       </div>
